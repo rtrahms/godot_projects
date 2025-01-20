@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://8hr27288a5fr"]
+
+[ext_resource type="Texture2D" uid="uid://voh4bvrj23vu" path="res://assets/textures/ship.svg" id="1_f3mq7"]
+
+[node name="UILife" type="TextureRect"]
+offset_left = 29.0
+offset_top = 76.0
+offset_right = 83.0
+offset_bottom = 125.0
+texture = ExtResource("1_f3mq7")

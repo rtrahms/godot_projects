@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqe8sxkul5cq8"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_vti0x"]
+[ext_resource type="Texture2D" uid="uid://voh4bvrj23vu" path="res://assets/textures/ship.svg" id="2_r13qa"]
+[ext_resource type="AudioStream" uid="uid://sb8o4ugessoe" path="res://assets/sounds/thrusterFire_003.ogg" id="3_51t63"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 4
+script = ExtResource("1_vti0x")
+
+[node name="Ship" type="Sprite2D" parent="."]
+position = Vector2(-1, -3)
+texture = ExtResource("2_r13qa")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, -3)
+polygon = PackedVector2Array(6.5, -28.9, 4.7, -29.5, -3.5, -29.5, -3.5, -28, -20.5, 15.9, -20.5, 29.5, -8.8, 29.5, 0.6, 25.2, 9.8, 29.5, 20.5, 29.5, 20.5, 14.5, 6.5, -25)
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="ThrusterNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_51t63")

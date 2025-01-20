@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://vf44hcjv1t0t"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_w1yv1"]
+[ext_resource type="Texture2D" uid="uid://yf3eufj44tf7" path="res://assets/textures/rock_large.svg" id="2_m5vrk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xteem"]
+radius = 112.018
+
+[node name="Asteroid" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_w1yv1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m5vrk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_xteem")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

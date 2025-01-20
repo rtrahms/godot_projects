@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp303wu5d6007"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_7m4t5"]
+[ext_resource type="FontFile" uid="uid://byafa6qbxfool" path="res://assets/fonts/FFF_Tusj.ttf" id="2_neuos"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t7gon"]
+font = ExtResource("2_neuos")
+font_size = 48
+font_color = Color(0.150943, 0.7167, 0.642806, 1)
+outline_color = Color(0.572189, 0.3924, 0.612794, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7m4t5")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 347.0
+offset_bottom = 71.0
+text = "SCORE: 9999"
+label_settings = SubResource("LabelSettings_t7gon")
+
+[node name="Lives" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 74.0
+offset_right = 239.0
+offset_bottom = 133.0
+scale = Vector2(1.5, 1.5)
