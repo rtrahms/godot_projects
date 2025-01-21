@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr4mxqbc7mshq"]
+[gd_scene load_steps=14 format=3 uid="uid://cr4mxqbc7mshq"]
 
 [ext_resource type="PackedScene" uid="uid://bqe8sxkul5cq8" path="res://characters/player/player.tscn" id="1_560da"]
 [ext_resource type="Script" path="res://scripts/asteroids_game.gd" id="1_vp42e"]
@@ -10,6 +10,37 @@
 [ext_resource type="AudioStream" uid="uid://dstormxejfpft" path="res://assets/sounds/sfx_laser1.ogg" id="8_f8tpc"]
 [ext_resource type="AudioStream" uid="uid://g0dwf7ills1a" path="res://assets/sounds/explosionCrunch_004.ogg" id="9_ublou"]
 [ext_resource type="AudioStream" uid="uid://c60imjqgpd8ww" path="res://assets/sounds/explosionCrunch_002.ogg" id="10_b1j3d"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ktoe"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+spread = 0.0
+initial_velocity_min = -10.0
+initial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2lfdn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+spread = 0.0
+initial_velocity_min = -20.0
+initial_velocity_max = -20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l2lb6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 360, 1)
+spread = 0.0
+initial_velocity_min = -30.0
+initial_velocity_max = -30.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
 
 [node name="AsteroidsGame" type="Node2D"]
 script = ExtResource("1_vp42e")
@@ -30,6 +61,32 @@ size_flags_vertical = 4
 
 [node name="SplashScreen" parent="UI" instance=ExtResource("4_s4k06")]
 visible = false
+
+[node name="BackgroundStarFields" type="Node2D" parent="."]
+
+[node name="StarFieldBack" type="GPUParticles2D" parent="BackgroundStarFields"]
+z_index = -100
+position = Vector2(1300, 360)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_0ktoe")
+lifetime = 140.0
+preprocess = 280.0
+
+[node name="StarFieldMiddle" type="GPUParticles2D" parent="BackgroundStarFields"]
+z_index = -95
+position = Vector2(1300, 360)
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_2lfdn")
+lifetime = 140.0
+preprocess = 280.0
+
+[node name="StarFieldFront" type="GPUParticles2D" parent="BackgroundStarFields"]
+z_index = -90
+position = Vector2(1300, 360)
+amount = 35
+process_material = SubResource("ParticleProcessMaterial_l2lb6")
+lifetime = 140.0
+preprocess = 280.0
 
 [node name="Player" parent="." instance=ExtResource("1_560da")]
 position = Vector2(640, 360)
